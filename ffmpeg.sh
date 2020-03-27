@@ -7,6 +7,8 @@ exec ffmpeg \
   -i :44 \
   -f pulse \
   -i default \
-  -crf 18 \
   -pix_fmt yuv420p \
-  ~/out.mkv
+  -preset ultrafast \
+  -c:v libx264 \
+  -c:a aac \
+  -f flv "rtmp://34.204.112.179:1935/LiveStreaming-livestream/primary"
