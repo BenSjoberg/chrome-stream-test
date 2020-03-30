@@ -1,6 +1,8 @@
 #!/bin/bash
+cd "$(dirname "$0")" || exit $?
 
-rm -f $HOME/test.mkv
+mkdir -p media
+rm -f media/test.mkv
 
 exec ffmpeg \
   -r 24 \
@@ -14,5 +16,5 @@ exec ffmpeg \
   -preset ultrafast \
   -c:v libx264 \
   -c:a aac \
-  $HOME/test.mkv
+  media/test.mkv
   # -f flv "rtmp://34.204.112.179:1935/LiveStreaming-livestream/primary"

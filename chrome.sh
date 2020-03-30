@@ -13,5 +13,6 @@ exec google-chrome \
   --start-fullscreen \
   --no-default-browser-check \
   --no-first-run \
+  --no-sandbox \
   --kiosk \
   $URL
