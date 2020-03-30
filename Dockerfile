@@ -11,5 +11,11 @@ RUN apt-get update && \
 
 # Install other tools
 RUN apt-get update && \
-    apt-get install -y xvfb pulseaudio ffmpeg && \
+    apt-get install -y xvfb pulseaudio ffmpeg sudo && \
     rm -rf /var/lib/apt/lists
+
+# Add chrome-user
+RUN useradd -m chrome-user && \
+    usermod -aG sudo chrome-user && \
+    echo '%sudo ALL=NOPASSWD: ALL' > /etc/sudoers.d/sudo-nopasswd
+USER chrome-user

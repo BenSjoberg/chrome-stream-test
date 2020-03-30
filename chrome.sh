@@ -12,7 +12,8 @@ exec google-chrome \
   --window-position=0,0 \
   --start-fullscreen \
   --no-default-browser-check \
-  --no-first-run \
   --no-sandbox \
+  --no-first-run \
+  --disable-setuid-sandbox \
   --kiosk \
   $URL
