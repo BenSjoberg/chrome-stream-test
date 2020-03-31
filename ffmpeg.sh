@@ -1,20 +1,21 @@
 #!/bin/bash
 cd "$(dirname "$0")" || exit $?
 
-mkdir -p media
-rm -f media/test.mkv
-
 exec ffmpeg \
   -r 24 \
   -f x11grab \
   -video_size 1920x1080 \
-  -probesize 50M \
+  -draw_mouse 0 \
   -i :44+0,48 \
-  -f pulse \
-  -i default \
+  -f alsa \
+  -i pulse \
   -pix_fmt yuv420p \
-  -preset ultrafast \
+  -preset veryfast \
+  -g 48 \
   -c:v libx264 \
   -c:a aac \
-  media/test.mkv
-  # -f flv "rtmp://34.204.112.179:1935/LiveStreaming-livestream/primary"
+  -hls_start_number_source datetime \
+  -hls_list_size 20 \
+  -f hls -method PUT http://host.docker.internal:8087/test2/index.m3u8
+  # -f flv "rtmp://host.docker.internal:1935/live/test"
+  # media/test.mkv

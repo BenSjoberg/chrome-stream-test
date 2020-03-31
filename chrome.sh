@@ -2,7 +2,7 @@
 
 export DISPLAY=:44
 
-URL='https://www.youtube.com/watch?v=oHg5SJYRHA0'
+URL=${1:-https://time.is}
 
 rm -rf $HOME/.config/google-chrome
 
@@ -15,5 +15,6 @@ exec google-chrome \
   --no-sandbox \
   --no-first-run \
   --disable-setuid-sandbox \
+  --disable-dev-shm-usage \
   --kiosk \
   $URL

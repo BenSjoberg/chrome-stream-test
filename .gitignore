@@ -1,1 +1,3 @@
 media/
+server/node_modules
+server/package-lock.json
