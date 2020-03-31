@@ -17,5 +17,5 @@ RUN apt-get update && \
 # Add chrome-user
 RUN useradd -m chrome-user && \
     usermod -aG sudo chrome-user && \
-    echo '%sudo ALL=NOPASSWD: ALL' > /etc/sudoers.d/sudo-nopasswd
+    echo 'chrome-user ALL=(ALL) NOPASSWD: /usr/bin/Xvfb' > /etc/sudoers.d/xvfb
 USER chrome-user
