@@ -11,7 +11,7 @@ RUN apt-get update && \
 
 # Install other tools
 RUN apt-get update && \
-    apt-get install -y xvfb pulseaudio ffmpeg sudo && \
+    apt-get install -y xvfb pulseaudio ffmpeg sudo xdotool && \
     rm -rf /var/lib/apt/lists
 
 # Add chrome-user
